@@ -14,14 +14,12 @@ const Skills = () => {
         { name: 'CSS3', icon: <SiCss3 className="text-blue-500" />, level: 90 },
         { name: 'JavaScript', icon: <SiJavascript className="text-yellow-400" />, level: 92 },
         { name: 'React.js', icon: <FaReact className="text-blue-500" />, level: 88 },
-        { name: 'React Native', icon: <SiReact className="text-blue-500" />, level: 75 },
         { name: 'TypeScript', icon: <SiTypescript className="text-blue-600" />, level: 75 },
         { name: 'Next.js', icon: <SiNextdotjs className="text-white" />, level: 70 },
         { name: 'Redux', icon: <SiRedux className="text-purple-500" />, level: 80 },
         { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-teal-400" />, level: 85 },
-        { name: 'Three.js', icon: <SiThreedotjs className="text-white" />, level: 75 },
-        { name: 'shadcn/ui', icon: <div className="w-6 h-6 bg-gray-400 rounded-sm flex items-center justify-center text-black text-xs font-bold">UI</div>, level: 82 },
-        { name: 'Figma', icon: <FaFigma className="text-purple-400" />, level: 75 },
+        { name: 'Three.js', icon: <SiThreedotjs className="text-white" />, level: 30 },
+        { name: 'Figma', icon: <FaFigma className="text-purple-400" />, level: 30 },
       ],
     },
     {
@@ -35,17 +33,12 @@ const Skills = () => {
         { name: 'MySQL', icon: <SiMysql className="text-blue-400" />, level: 75 },
         { name: 'PHP', icon: <SiPhp className="text-purple-500" />, level: 70 },
         { name: 'Firebase', icon: <SiFirebase className="text-yellow-500" />, level: 78 },
-        { name: 'GraphQL', icon: <SiGraphql className="text-pink-500" />, level: 65 },
       ],
     },
     {
       name: 'Cloud & DevOps',
       skills: [
         { name: 'Microsoft Azure', icon: <FaMicrosoft className="text-blue-600" />, level: 80 },
-        { name: 'Google Cloud', icon: <SiGooglecloud className="text-blue-500" />, level: 20 },
-        
-        { name: 'AWS', icon: <FaAws className="text-yellow-500" />, level: 10 },
-        { name: 'Kubernetes', icon: <SiKubernetes className="text-blue-500" />, level: 30 },
         { name: 'Docker', icon: <FaDocker className="text-blue-500" />, level: 25 },
         { name: 'Git', icon: <FaGitAlt className="text-red-500" />, level: 90 },
       ],
@@ -55,7 +48,6 @@ const Skills = () => {
       skills: [
         { name: 'Google Colab', icon: <SiGooglecolab className="text-orange-500" />, level: 80 },
         { name: 'Langflow', icon: <img src={LangflowLogo} alt="Langflow" className="w-6 h-6" />, level: 90 },
-        { name: 'PowerBI', icon: <div className="w-6 h-6 bg-yellow-500 rounded-sm flex items-center justify-center text-white text-xs font-bold">BI</div>, level: 1 },
         { name: 'TensorFlow', icon: <div className="w-6 h-6 bg-orange-600 rounded-sm flex items-center justify-center text-white text-xs font-bold">TF</div>, level: 0 },
       ],
     },
@@ -88,7 +80,7 @@ const Skills = () => {
       </Helmet>
 
       <div className="max-w-6xl mx-auto">
-        <motion.h1 
+        <motion.h1
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -99,7 +91,7 @@ const Skills = () => {
 
         <div className="space-y-16">
           {skillCategories.map((category, categoryIndex) => (
-            <motion.div 
+            <motion.div
               key={categoryIndex}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -107,7 +99,7 @@ const Skills = () => {
               className="mb-12"
             >
               <h2 className="text-2xl md:text-3xl font-bold text-[#00c2ff] mb-8">{category.name}</h2>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {category.skills.map((skill, skillIndex) => (
                   <motion.div
@@ -119,10 +111,10 @@ const Skills = () => {
                       <div className="text-4xl mr-4">{skill.icon}</div>
                       <h3 className="text-xl font-semibold text-white">{skill.name}</h3>
                     </div>
-                    
+
                     <div className="w-full bg-gray-800 rounded-full h-2.5 mb-2">
-                      <motion.div 
-                        className="bg-[#00c2ff] h-2.5 rounded-full" 
+                      <motion.div
+                        className="bg-[#00c2ff] h-2.5 rounded-full"
                         initial={{ width: 0 }}
                         animate={{ width: `${skill.level}%` }}
                         transition={{ duration: 1, delay: 0.5 + (skillIndex * 0.1) }}
@@ -136,7 +128,7 @@ const Skills = () => {
           ))}
         </div>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.8 }}
@@ -144,7 +136,7 @@ const Skills = () => {
         >
           <h2 className="text-2xl md:text-3xl font-bold text-[#00c2ff] mb-4">Continuous Learning</h2>
           <p className="text-gray-300 mb-6">
-            I'm constantly expanding my skill set and staying up-to-date with the latest technologies and best practices in web development. 
+            I'm constantly expanding my skill set and staying up-to-date with the latest technologies and best practices in web development.
             Currently exploring more about AI integration, cloud architecture, and advanced React patterns.
           </p>
           <div className="flex flex-wrap gap-3">

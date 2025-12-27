@@ -169,7 +169,7 @@ const Contact = () => {
         transition={{ duration: 1, delay: 0.5 }}
       >
         {[
-          { icon: <FaGithub />, name: "GitHub", url: "https://github.com/TanishqMSD" },
+          { icon: <FaGithub />, name: "GitHub", url: "https://github.com/tanishqbuilds" },
           { icon: <FaEnvelope />, name: "Email", url: "mailto:tanishqkulkarni18@gmail.com" },
           { icon: <FaTwitter />, name: "Twitter", url: "https://twitter.com/tanishq7781" },
           { icon: <FaInstagram />, name: "Instagram", url: "https://instagram.com/tanishq7.exe" },

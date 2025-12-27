@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet";
 import { FaReact, FaNodeJs } from "react-icons/fa";
@@ -7,6 +7,8 @@ import LangflowLogo from "../assets/langflow.png";
 import Invoisify from "../assets/invoisify.jpg";
 import Influence from "../assets/influenceiq.png";
 import EduAI from "../assets/eduai.png";
+import Reponix from "../assets/reponix.png";
+import Labrooms from "../assets/labrooms.png";
 
 import Level from "../assets/levelsupermind.png";
 import Hackfusion from "../assets/hackfusion.jpg";
@@ -89,8 +91,8 @@ const TechIcon = ({ icon, imgSrc, color }) => {
 const ProjectCard = ({ title, description, liveLink, githubLink, imgSrc, tags, videoLink, techStack, completionDate, featured, role }) => {
   return (
     <div>
-      <motion.div 
-        whileHover={{ scale: 1.05 }} 
+      <motion.div
+        whileHover={{ scale: 1.05 }}
         className="relative h-full flex flex-col"
       >
         <div className="bg-[#1c1c1c] shadow-lg rounded-xl overflow-hidden transition-all duration-300 p-4 sm:p-6 border border-gray-800 hover:border-[#00c2ff] h-full flex flex-col">
@@ -100,13 +102,13 @@ const ProjectCard = ({ title, description, liveLink, githubLink, imgSrc, tags, v
               Featured
             </div>
           )}
-          
+
           {/* Project Image with Overlay */}
           <div className="relative overflow-hidden rounded-lg group">
-            <img 
-              src={imgSrc} 
-              alt={title} 
-              className="w-full h-48 sm:h-56 object-cover transition-transform duration-500 group-hover:scale-110" 
+            <img
+              src={imgSrc}
+              alt={title}
+              className="w-full h-48 sm:h-56 object-cover transition-transform duration-500 group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-start p-4">
               <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
@@ -120,12 +122,12 @@ const ProjectCard = ({ title, description, liveLink, githubLink, imgSrc, tags, v
           {/* Content */}
           <div className="mt-4 sm:mt-5 flex-grow flex flex-col">
             <h3 className="text-[#00c2ff] text-xl sm:text-2xl font-bold">{title}</h3>
-            
+
             {/* Role */}
             {role && (
               <div className="text-gray-300 text-sm mt-1 italic">{role}</div>
             )}
-            
+
             <p className="text-gray-400 mt-3 text-sm sm:text-base flex-grow">{description}</p>
 
             {/* Tech Stack */}
@@ -154,10 +156,10 @@ const ProjectCard = ({ title, description, liveLink, githubLink, imgSrc, tags, v
             {/* Links */}
             <div className="flex justify-between mt-6 pt-4 border-t border-gray-800">
               {liveLink && (
-                <a 
-                  href={liveLink} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href={liveLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-[#00c2ff] hover:text-white transition flex items-center gap-1"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -167,10 +169,10 @@ const ProjectCard = ({ title, description, liveLink, githubLink, imgSrc, tags, v
                 </a>
               )}
               {videoLink ? (
-                <a 
-                  href={videoLink} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href={videoLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-[#00c2ff] hover:text-white transition flex items-center gap-1"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
@@ -180,10 +182,10 @@ const ProjectCard = ({ title, description, liveLink, githubLink, imgSrc, tags, v
                   View Hackathon
                 </a>
               ) : (
-                <a 
-                  href={githubLink} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href={githubLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-[#00c2ff] hover:text-white transition flex items-center gap-1"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -256,7 +258,7 @@ const Projects = () => {
         </script>
       </Helmet>
       <TechStack />
-      
+
       {/* Tab Navigation */}
       <div className="flex space-x-4 mb-8">
         {['Projects', 'Hackathons', 'Certificates'].map((tab) => (
@@ -275,23 +277,47 @@ const Projects = () => {
       {/* Projects Tab Content */}
       {activeTab === 'projects' && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 xl:gap-12 mt-8 sm:mt-12 max-w-6xl w-full px-4 sm:px-6">
-          <ProjectCard 
-            title="EduAI" 
+          <ProjectCard
+            title="Reponix - AI powered Code Reviewer"
+            description="An AI-powered code review platform that analyzes GitHub repositories instantly. Detects AI-generated code, security vulnerabilities, and provides hire-ready insights in seconds."
+            liveLink="https://reponix.vercel.app"
+            githubLink="https://github.com/TanishqMSD/Reponix"
+            imgSrc={Reponix}
+            tags={["AI Code Review", "Security Analysis", "GitHub Integration"]}
+            techStack={["Next.js", "Grok", "Llama", "RAG", "TailwindCSS"]}
+            completionDate="December 2024"
+            featured={true}
+            role="Lead Developer"
+          />
+          <ProjectCard
+            title="EduAI"
             description="A personalized learning path dashboard for students and self-learners. AI-driven recommendations help users create customized educational roadmaps."
-            liveLink="https://eduai-learn.vercel.app"  
-            githubLink="https://github.com/TanishqMSD/EduAI" 
+            liveLink="https://eduai-learn.vercel.app"
+            githubLink="https://github.com/TanishqMSD/EduAI"
             imgSrc={EduAI}
-            tags={["GenAI", "Personalized Courses","Roadmaps", "MERN Stack"]}
+            tags={["GenAI", "Personalized Courses", "Roadmaps", "MERN Stack"]}
             techStack={["MongoDB", "Express", "React", "Node.js", "Gemini API"]}
             completionDate="February 2023"
             featured={true}
             role="Backend Developer"
           />
-          <ProjectCard 
-            title="Social Media Analyzer" 
-            description="An AI-powered social media analyzer that provides deep insights into audience engagement, content performance, and growth opportunities." 
-            liveLink="https://influence-iq.vercel.app" 
-            githubLink="https://github.com/TanishqMSD/socialmedia-analyzer" 
+          <ProjectCard
+            title="Labrooms"
+            description="Collaborative room-based sharing platform designed for students in college labs."
+            liveLink="https://labrooms.vercel.app"
+            githubLink="https://github.com/TanishqMSD/labrooms"
+            imgSrc={Labrooms}
+            tags={["Real-time Collaboration", "Code Sharing", "Whiteboard", "File Sharing"]}
+            techStack={["Next.js", "WebSocket", "Cloudinary", "Canvas API", "MongoDB"]}
+            completionDate="Ongoing"
+            featured={true}
+            role="Full Stack Developer"
+          />
+          <ProjectCard
+            title="Social Media Analyzer"
+            description="An AI-powered social media analyzer that provides deep insights into audience engagement, content performance, and growth opportunities."
+            liveLink="https://influence-iq.vercel.app"
+            githubLink="https://github.com/TanishqMSD/socialmedia-analyzer"
             imgSrc={Influence}
             tags={["AI-Powered", "Data Analysis", "Social Media Insights"]}
             techStack={["React", "Node.js", "Express", "OpenAI API", "Chart.js"]}
@@ -299,11 +325,11 @@ const Projects = () => {
             featured={true}
             role="Full Stack Developer"
           />
-          <ProjectCard 
-            title="Invoisify" 
+          <ProjectCard
+            title="Invoisify"
             description="An Invoice Generator App with robust features for businesses and freelancers. Create, manage, and export professional invoices with ease."
-            liveLink="https://invoisify-tech.vercel.app"  
-            githubLink="https://github.com/TanishqMSD/invoisify" 
+            liveLink="https://invoisify-tech.vercel.app"
+            githubLink="https://github.com/TanishqMSD/invoisify"
             imgSrc={Invoisify}
             tags={["OAuth Google Login", "HTML2PDF", "Template Storage", "In Progress"]}
             techStack={["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"]}
@@ -311,10 +337,10 @@ const Projects = () => {
             featured={true}
             role="Lead Developer"
           />
-          <ProjectCard 
-            title="College Transparency System" 
+          <ProjectCard
+            title="College Transparency System"
             description="Automated system for digital voting, facilities booking, and complaint management with real-time tracking and administrative dashboard."
-            githubLink="https://github.com/TanishqMSD/hackfusion" 
+            githubLink="https://github.com/TanishqMSD/hackfusion"
             imgSrc={Hackfusion}
             tags={["College System", "Digital Voting", "Booking System"]}
             techStack={["MERN Stack", "Socket.io", "JWT", "Chart.js"]}
@@ -322,10 +348,10 @@ const Projects = () => {
             featured={false}
             role="Full Stack Developer"
           />
-          <ProjectCard 
-            title="Car Driving Game" 
+          <ProjectCard
+            title="Car Driving Game"
             description="Interactive 3D car driving game built with Three.js and React, featuring realistic physics and controls."
-            githubLink="https://github.com/TanishqMSD/car-game" 
+            githubLink="https://github.com/TanishqMSD/car-game"
             imgSrc="https://placehold.co/600x400/1c1c1c/00c2ff?text=Car+Game&font=montserrat"
             tags={["3D Game", "Interactive", "Physics"]}
             techStack={["React", "Three.js", "React Three Fiber"]}
@@ -333,10 +359,10 @@ const Projects = () => {
             featured={false}
             role="Frontend Developer"
           />
-          <ProjectCard 
-            title="YouTube Clone" 
+          <ProjectCard
+            title="YouTube Clone"
             description="A responsive YouTube clone with video playback, search, and user authentication features."
-            githubLink="https://github.com/TanishqMSD/youtube-clone" 
+            githubLink="https://github.com/TanishqMSD/youtube-clone"
             imgSrc="https://placehold.co/600x400/1c1c1c/00c2ff?text=YouTube+Clone&font=montserrat"
             tags={["Video Platform", "Search", "Authentication"]}
             techStack={["React", "Firebase", "YouTube API"]}
@@ -344,10 +370,10 @@ const Projects = () => {
             featured={false}
             role="Frontend Developer"
           />
-          <ProjectCard 
-            title="Parkly" 
+          <ProjectCard
+            title="Parkly"
             description="Vehicle parking management system with real-time space tracking and booking capabilities."
-            githubLink="https://github.com/TanishqMSD/parkly" 
+            githubLink="https://github.com/TanishqMSD/parkly"
             imgSrc="https://placehold.co/600x400/1c1c1c/00c2ff?text=Parkly&font=montserrat"
             tags={["Parking Management", "Booking System"]}
             techStack={["PHP", "MySQL", "Bootstrap", "jQuery"]}
@@ -355,10 +381,10 @@ const Projects = () => {
             featured={false}
             role="Full Stack Developer"
           />
-          <ProjectCard 
-            title="Filmzo" 
+          <ProjectCard
+            title="Filmzo"
             description="OTT platform for streaming movies and TV shows with user profiles and recommendations."
-            githubLink="https://github.com/TanishqMSD/filmzo" 
+            githubLink="https://github.com/TanishqMSD/filmzo"
             imgSrc="https://placehold.co/600x400/1c1c1c/00c2ff?text=Filmzo&font=montserrat"
             tags={["OTT Platform", "Streaming", "User Profiles"]}
             techStack={["HTML", "Bootstrap", "JavaScript", "PHP"]}
@@ -366,38 +392,17 @@ const Projects = () => {
             featured={false}
             role="Full Stack Developer"
           />
-          <ProjectCard 
-            title="RateAPI" 
-            description="Crowdsourced API rating and recommendation platform. Currently in development."
-            githubLink="https://github.com/TanishqMSD/rateapi" 
-            imgSrc="https://placehold.co/600x400/1c1c1c/00c2ff?text=RateAPI&font=montserrat"
-            tags={["API Rating", "Crowdsourcing", "In Progress"]}
-            techStack={["MERN Stack", "GraphQL", "JWT"]}
-            completionDate="Ongoing"
-            featured={false}
-            role="Lead Developer"
-          />
-          <ProjectCard 
-            title="Labrooms" 
-            description="No-login collaboration platform for students to save and share lab work using WhatsApp or email authentication."
-            githubLink="https://github.com/TanishqMSD/labrooms" 
-            imgSrc="https://placehold.co/600x400/1c1c1c/00c2ff?text=Labrooms&font=montserrat"
-            tags={["Collaboration", "Education", "In Progress"]}
-            techStack={["Next.js", "Firebase", "WhatsApp API"]}
-            completionDate="Ongoing"
-            featured={false}
-            role="Full Stack Developer"
-          />
+
         </div>
       )}
 
       {/* Hackathons Tab Content */}
       {activeTab === 'hackathons' && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 xl:gap-12 mt-8 sm:mt-12 max-w-6xl w-full px-4 sm:px-6">
-          <ProjectCard 
-            title="LevelSupermind" 
-            description="Automated Research Tracking tool for Social Media Influencers developed at LevelSuperMind Hackathon. Features web scraping and GenAI integration for real-time content analysis and trend detection." 
-            githubLink="https://github.com/TanishqMSD/AdVise" 
+          <ProjectCard
+            title="LevelSupermind"
+            description="Automated Research Tracking tool for Social Media Influencers developed at LevelSuperMind Hackathon. Features web scraping and GenAI integration for real-time content analysis and trend detection."
+            githubLink="https://github.com/TanishqMSD/AdVise"
             imgSrc={Level}
             tags={["Web Scraping", "GenAI", "Analytics", "📍 Schbang, Lower Parel, Mumbai"]}
             videoLink="https://youtu.be/u1NYjj31y-s?si=APqckAQZbq4URrrj"
@@ -406,10 +411,10 @@ const Projects = () => {
             featured={true}
             role="Team Lead & Backend Developer"
           />
-          <ProjectCard 
-            title="Hackfusion 2.O" 
-            description="Automated Transparent College System built at Hackfusion. Features digital voting, facilities booking, and complaint management with real-time status tracking and administrative dashboard." 
-            githubLink="https://github.com/TanishqMSD/hackfusion" 
+          <ProjectCard
+            title="Hackfusion 2.O"
+            description="Automated Transparent College System built at Hackfusion. Features digital voting, facilities booking, and complaint management with real-time status tracking and administrative dashboard."
+            githubLink="https://github.com/TanishqMSD/hackfusion"
             imgSrc={Hackfusion}
             tags={["College System", "Digital Voting", "Booking System", "📍 SGGSIET Nanded"]}
             videoLink="https://youtu.be/P8no7VJU9aU?si=BoSgq8spBwn0TxX4"
@@ -418,11 +423,11 @@ const Projects = () => {
             featured={false}
             role="Full Stack Developer"
           />
-          <ProjectCard 
-            title="Quasar 3.O" 
-            description="Personalized learning path dashboard created at Quasar 3.0. AI-driven education tracking and recommendations with progress visualization and adaptive learning features." 
-            githubLink="https://github.com/TanishqMSD/EduAi" 
-            imgSrc={Quasar} 
+          <ProjectCard
+            title="Quasar 3.O"
+            description="Personalized learning path dashboard created at Quasar 3.0. AI-driven education tracking and recommendations with progress visualization and adaptive learning features."
+            githubLink="https://github.com/TanishqMSD/EduAi"
+            imgSrc={Quasar}
             tags={["AI Education", "Learning Analytics", "Dashboard", "📍 VPPCOE, Sion, Mumbai"]}
             videoLink="https://youtu.be/EUOojvNZqew?si=D1vsd1UiU1X3cSUD"
             techStack={["React", "Node.js", "Express", "MongoDB", "AI APIs"]}
