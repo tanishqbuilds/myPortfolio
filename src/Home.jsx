@@ -7,6 +7,8 @@ import Contact from "./components/Contact";
 import Navbar from "./components/Navbar";
 import Preloader from "./components/Preloader";
 import Skills from "./components/Skills";
+import Internships from "./components/Internships";
+
 
 function Home() {
     const [loading, setLoading] = useState(true);
@@ -33,9 +35,13 @@ function Home() {
                     <Element name="skills">
                         <Skills />
                     </Element>
+                    <Element name="experience">
+                        <Internships />
+                    </Element>
                     <Element name="projects">
                         <Projects />
                     </Element>
+
                     <Element name="education">
                         <Education />
                     </Element>

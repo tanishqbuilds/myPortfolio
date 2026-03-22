@@ -9,6 +9,9 @@ import Influence from "../assets/influenceiq.png";
 import EduAI from "../assets/eduai.png";
 import Reponix from "../assets/reponix.png";
 import Labrooms from "../assets/labrooms.png";
+import Yousic from "../assets/yousic.png";
+import Ishkriaa from "../assets/ishkriaa.png";
+
 
 import Level from "../assets/levelsupermind.png";
 import Hackfusion from "../assets/hackfusion.jpg";
@@ -321,8 +324,8 @@ const Projects = () => {
             imgSrc={Influence}
             tags={["AI-Powered", "Data Analysis", "Social Media Insights"]}
             techStack={["React", "Node.js", "Express", "OpenAI API", "Chart.js"]}
-            completionDate="April 2023"
-            featured={true}
+            completionDate="2023"
+            featured={false}
             role="Full Stack Developer"
           />
           <ProjectCard
@@ -333,8 +336,8 @@ const Projects = () => {
             imgSrc={Invoisify}
             tags={["OAuth Google Login", "HTML2PDF", "Template Storage", "In Progress"]}
             techStack={["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"]}
-            completionDate="June 2023 - Present"
-            featured={true}
+            completionDate="2024"
+            featured={false}
             role="Lead Developer"
           />
           <ProjectCard
@@ -344,7 +347,41 @@ const Projects = () => {
             imgSrc={Hackfusion}
             tags={["College System", "Digital Voting", "Booking System"]}
             techStack={["MERN Stack", "Socket.io", "JWT", "Chart.js"]}
-            completionDate="February 2023"
+            completionDate="February 2024"
+            featured={false}
+            role="Full Stack Developer"
+          />
+          <ProjectCard
+            title="Yousic - Discord Music Bot"
+            description="A feature-rich Discord music bot with high-quality audio streaming, playlist management, and interactive slash commands. Built with speed and reliability in mind."
+            githubLink="https://github.com/TanishqMSD/yousic"
+            imgSrc={Yousic}
+            tags={["Discord Bot", "Music", "Automation"]}
+            techStack={["Node.js", "Discord.js", "DisTube", "ffmpeg"]}
+            completionDate="2023"
+            featured={true}
+            role="Lead Developer"
+          />
+          <ProjectCard
+            title="Ishkriaa - E-commerce"
+            description="A premium e-commerce platform with a focus on seamless user experience, secure Razorpay payments, and advanced product management."
+            liveLink="https://ishkriaa.vercel.app"
+            githubLink="https://github.com/TanishqMSD/ishkriaa"
+            imgSrc={Ishkriaa}
+            tags={["E-commerce", "Razorpay", "Shopping"]}
+            techStack={["Next.js", "React", "Node.js", "MongoDB", "Razorpay"]}
+            completionDate="2026"
+            featured={true}
+            role="Full Stack Developer"
+          />
+          <ProjectCard
+            title="Filmzo"
+            description="OTT platform for streaming movies and TV shows with user profiles and recommendations. My early venture into building large-scale web applications."
+            githubLink="https://github.com/TanishqMSD/filmzo"
+            imgSrc="https://placehold.co/600x400/1c1c1c/00c2ff?text=Filmzo&font=montserrat"
+            tags={["OTT Platform", "Streaming", "Internship Project"]}
+            techStack={["HTML", "Bootstrap", "JavaScript", "PHP"]}
+            completionDate="2023"
             featured={false}
             role="Full Stack Developer"
           />
@@ -355,7 +392,7 @@ const Projects = () => {
             imgSrc="https://placehold.co/600x400/1c1c1c/00c2ff?text=Car+Game&font=montserrat"
             tags={["3D Game", "Interactive", "Physics"]}
             techStack={["React", "Three.js", "React Three Fiber"]}
-            completionDate="March 2023"
+            completionDate="2025"
             featured={false}
             role="Frontend Developer"
           />
@@ -366,7 +403,7 @@ const Projects = () => {
             imgSrc="https://placehold.co/600x400/1c1c1c/00c2ff?text=YouTube+Clone&font=montserrat"
             tags={["Video Platform", "Search", "Authentication"]}
             techStack={["React", "Firebase", "YouTube API"]}
-            completionDate="April 2023"
+            completionDate="2023"
             featured={false}
             role="Frontend Developer"
           />
@@ -377,23 +414,13 @@ const Projects = () => {
             imgSrc="https://placehold.co/600x400/1c1c1c/00c2ff?text=Parkly&font=montserrat"
             tags={["Parking Management", "Booking System"]}
             techStack={["PHP", "MySQL", "Bootstrap", "jQuery"]}
-            completionDate="May 2023"
+            completionDate="2025"
             featured={false}
             role="Full Stack Developer"
           />
-          <ProjectCard
-            title="Filmzo"
-            description="OTT platform for streaming movies and TV shows with user profiles and recommendations."
-            githubLink="https://github.com/TanishqMSD/filmzo"
-            imgSrc="https://placehold.co/600x400/1c1c1c/00c2ff?text=Filmzo&font=montserrat"
-            tags={["OTT Platform", "Streaming", "User Profiles"]}
-            techStack={["HTML", "Bootstrap", "JavaScript", "PHP"]}
-            completionDate="June 2023"
-            featured={false}
-            role="Full Stack Developer"
-          />
-
+          
         </div>
+
       )}
 
       {/* Hackathons Tab Content */}

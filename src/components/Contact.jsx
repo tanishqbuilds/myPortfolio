@@ -10,6 +10,7 @@ const Contact = () => {
     email: "",
     message: ""
   });
+  const [isLoading, setIsLoading] = useState(false);
   const [status, setStatus] = useState({
     type: "",
     message: ""
@@ -25,35 +26,62 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     setStatus({ type: "", message: "" });
 
     try {
-      const response = await fetch("/api/contact", {
+      const webhookUrl = import.meta.env.VITE_DISCORD_WEBHOOK_URL;
+      
+      if (!webhookUrl) {
+        throw new Error("Webhook configuration missing. Please check your .env file.");
+      }
+
+      const discordPayload = {
+        embeds: [
+          {
+            title: "🚀 New Portfolio Message",
+            color: 0x00FFFF, // Cyan
+            fields: [
+              { name: "👤 Name", value: formData.name || "Anonymous", inline: true },
+              { name: "📧 Email", value: formData.email || "Not provided", inline: true },
+              { name: "💬 Message", value: formData.message || "No content" }
+            ],
+            timestamp: new Date().toISOString(),
+            footer: { text: "Contact Form | Portfolio" }
+          }
+        ]
+      };
+
+      const response = await fetch(webhookUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(discordPayload),
       });
-
-      const data = await response.json();
 
       if (response.ok) {
         setStatus({
           type: "success",
-          message: "Message sent successfully!"
+          message: "Message sent directly to Discord! 🚀"
         });
         setFormData({ name: "", email: "", message: "" });
       } else {
-        throw new Error(data.error || "Failed to send message");
+        throw new Error(`Failed to send message: ${response.statusText}`);
       }
     } catch (error) {
+      console.error("Submission Error:", error);
       setStatus({
         type: "error",
-        message: "Failed to send message. Please try again later."
+        message: error.message || "Failed to send message. Please try again later."
       });
+    } finally {
+      setIsLoading(false);
     }
   };
+
+
+
   return (
     <section className="relative w-full min-h-screen flex flex-col items-center justify-center text-center py-8 mt-8">
       <Helmet>
@@ -152,12 +180,22 @@ const Contact = () => {
           )}
           <motion.button
             type="submit"
-            className="mt-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:opacity-90 transition-all shadow-lg"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
+            disabled={isLoading}
+            className={`mt-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:opacity-90 transition-all shadow-lg ${isLoading ? 'opacity-70 cursor-not-allowed' : ''}`}
+            whileHover={!isLoading ? { scale: 1.02 } : {}}
+            whileTap={!isLoading ? { scale: 0.98 } : {}}
           >
-            Send Message
+            {isLoading ? (
+              <span className="flex items-center justify-center gap-2">
+                <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                Sending...
+              </span>
+            ) : "Send Message"}
           </motion.button>
+
         </motion.form>
       </motion.div>
 

@@ -5,8 +5,8 @@ const Preloader = ({ onFinish }) => {
   const [text, setText] = useState("< Hello, World! />");
 
   useEffect(() => {
-    setTimeout(() => setText("Welcome to Tanishq's Portfolio"), 2000);
-    setTimeout(onFinish, 4000);
+    setTimeout(() => setText("Welcome to Tanishq's Portfolio"), 1000);
+    setTimeout(onFinish, 2000);
   }, [onFinish]);
 
   return (
